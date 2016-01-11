@@ -1,0 +1,11 @@
+#!/bin/bash
+. install-cfg.sh
+
+echo "start master container..."
+docker run -idt --dns $DNS_IP  -P --name master -h master.mydomain.com hadoop-master:$IMAGE_VERSION &> /dev/null
+
+ip=$(docker inspect master | grep "IPAddress" | sed -ns '1p' |cut -f4 -d'"')
+echo $ip master.mydomain.com > /etc/dnsmasq.hosts/master.host
+
+
+service dnsmasq restart

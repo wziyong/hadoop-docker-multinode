@@ -17,9 +17,10 @@ RUN echo '123456' | passwd --stdin root
 RUN ssh-keygen -q -t rsa -b 2048 -f /etc/ssh/ssh_host_rsa_key -N ''
 RUN ssh-keygen -q -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N ''
 RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_ed25519_key
-RUN sed -i '/^session\s\+required\s\+pam_loginuid.so/s/^/#/' /etc/pam.d/sshd
+#RUN sed -i '/^session\s\+required\s\+pam_loginuid.so/s/^/#/' /etc/pam.d/sshd
+RUN sed -i 's/.*session.*required.*pam_loginuid.so.*/session optional pam_loginuid.so/g' /etc/pam.d/sshd
 RUN mkdir -p /root/.ssh && chown root.root /root && chmod 700 /root/.ssh
-CMD /usr/sbin/sshd 
+
 
 
 #move all files into container /usr/local, including jdk ,configuration files and  hadoop pkg 
@@ -41,6 +42,6 @@ sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' 
 RUN ln -s /usr/local/hadoop-2.7.1 /usr/local/hadoop 
 RUN mv /usr/local/bashrc ~/.bashrc 
 
-
-
+EXPOSE 22 
+CMD  ["/usr/sbin/sshd", "-D"]
 

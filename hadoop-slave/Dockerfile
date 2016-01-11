@@ -1,4 +1,4 @@
-FROM hadoop-base:0.0.3
+FROM hadoop-base:0.0.4
 
 MAINTAINER wziyong <wziyong@126.com>
 
