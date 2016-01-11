@@ -1,4 +1,4 @@
-FROM hadoop-base:0.0.2
+FROM hadoop-base:0.0.3
 
 MAINTAINER wziyong <wziyong@126.com>
 
@@ -15,5 +15,5 @@ mv /tmp/mapred-site.xml $HADOOP_INSTALL/etc/hadoop/mapred-site.xml && \
 mv /tmp/yarn-site.xml $HADOOP_INSTALL/etc/hadoop/yarn-site.xml 
 
 
-EXPOSE 22 7373 7946 9000 50010 50020 50070 50075 50090 50475 8030 8031 8032 8033 8040 8042 8060 8088 50060
+EXPOSE 22 7373 7946 9000 50010 50020 50070 50075 50090 50475 8030 8031 8032 8033 8040 8042 8060 8088 50060 19888
 
