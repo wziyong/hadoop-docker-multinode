@@ -51,6 +51,8 @@ serf发现新的节点时，就会重新配置dnsmasq,然后重启dnsmasq.
     2. [接下来的内容](part1-what-is-a-log.md#接下来的内容)
 - [第三部分：benchmark测试](part3-logs-and-real-time-stream-processing.md)
     1. [TeraSort](part3-logs-and-real-time-stream-processing.md#数据流图data-flow-graphs)
+- [后面的工作]
+    1. [Spark+Docker](xxx)
 - [结束语及参考资料](the-end.md)
     1. [学术论文、系统、讨论和博客](the-end.md#学术论文系统讨论和博客)
     1. [一些相关的开源软件](the-end.md#一些相关的开源软件)
