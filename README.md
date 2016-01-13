@@ -9,15 +9,19 @@
 
 1. [alvinhenrick/hadoop-mutinode](https://github.com/alvinhenrick/hadoop-mutinode)
 1. [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker)
+
 ```
 [kiwenlau/hadoop-cluster-docker原理](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
 容器启动时，serf服务会立即启动，master节点的IP会传给所有slave节点。
 slave节点上的serf agent会马上发现master节点，master节点就马上发现了所有slave节点。
-然后它们之间通过互相交换信息，所有节点就能知道其他所有节点的存在了！(Everyone will know Everyone). serf发现新的节点时，就会重新配置dnsmasq,然后重启dnsmasq.所以dnsmasq就能够解析集群的所有节点的域名啦。
+然后它们之间通过互相交换信息，所有节点就能知道其他所有节点的存在了。
+serf发现新的节点时，就会重新配置dnsmasq,然后重启dnsmasq.
 这个过程随着节点的增加会耗时更久，稍等片刻才能启动Hadoop。
 这个解决方案是由SequenceIQ公司提出的，该公司专注于将Hadoop运行在Docker中。
 ```
+
 就像kiwenlau所说，随着集群节点的增加，serf发现并同步时间很长，比如，我在一台节点上安装30个节点时，通过serf members命令查看节点状态，一直是不稳定的，有时是active，有时是inactive状态。单主机上部署30个节点，由于网络的原因，系统是不可用的。而且跨主机也没有涉及。所以，我在他们基础上做了一些修改，比如舍弃serf，搭建单独dns服务器，实现多主机docker容器互联，更换了镜像系统为centos7（因为自己习惯centos了）等。后面将继续在上面进行hadoop的一些基准测试，以对hadoop+docker有个直观的认识。
+
 -----------------
 
 目录
