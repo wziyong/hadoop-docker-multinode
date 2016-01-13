@@ -10,8 +10,8 @@
 1. [alvinhenrick/hadoop-mutinode](https://github.com/alvinhenrick/hadoop-mutinode)
 1. [kiwenlau/hadoop-cluster-docker](https://github.com/kiwenlau/hadoop-cluster-docker)
 
+[kiwenlau/hadoop-cluster-docker大体原理](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
 ```
-[kiwenlau/hadoop-cluster-docker原理](http://kiwenlau.com/2015/06/08/150608-hadoop-cluster-docker/)
 容器启动时，serf服务会立即启动，master节点的IP会传给所有slave节点。
 slave节点上的serf agent会马上发现master节点，master节点就马上发现了所有slave节点。
 然后它们之间通过互相交换信息，所有节点就能知道其他所有节点的存在了。
