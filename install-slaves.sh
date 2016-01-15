@@ -23,7 +23,7 @@ i=0
 while [ $i -lt $N ]
 do
 	echo "start slave$ClusterStack$i container..."
-        docker run -idt --dns $DNS_IP  -P --name slave$ClusterStack$i -h slave$ClusterStack$i.mydomain.com hadoop-slave:$IMAGE_VERSION &> /dev/null
+        docker run -idt --dns $DNS_IP  -P --name slave$ClusterStack$i -v /etc/localtime:/etc/localtime:ro -h slave$ClusterStack$i.mydomain.com hadoop-slave:$IMAGE_VERSION &> /dev/null
 	ip=$(docker inspect slave$ClusterStack$i | grep "IPAddress" | sed -ns '1p' |cut -f4 -d'"')
         echo $ip slave$ClusterStack$i.mydomain.com >> slave$ClusterStack.host
         echo slave$ClusterStack$i.mydomain.com >> slaves
