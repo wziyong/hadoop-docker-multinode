@@ -42,7 +42,7 @@ serf发现新的节点时，就会重新配置dnsmasq,然后重启dnsmasq.
     2. [相关安装包下载](part1-what-is-a-log.md#变更日志changelog101表与事件的二象性duality)
     1. [接下来的内容](part1-what-is-a-log.md#接下来的内容)
 - [第二部分：集群安装](part2-data-integration.md)
-    1. [准备工作](part2-data-integration.md#数据集成两个难题)
+    1. [准备工作](doc/install-prepare.md)
     1. [DNS搭建](part2-data-integration.md#数据集成两个难题)
     1. [Docker网络设置](part2-data-integration.md#日志结构化的log-structured数据流)
     1. [hadoop-base镜像](part2-data-integration.md#在linkedin)
