@@ -10,7 +10,7 @@
 </property>
 <property>
   <name>yarn.resourcemanager.resource-tracker.address</name>
-  <value>master.mydomain.com:8025</value>
+  <value>master.mydomain.com:8031</value>
 </property>
 <property>
   <name>yarn.resourcemanager.scheduler.address</name>
